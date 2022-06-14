@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+    php:
+      image: php:7.3-fpm-alpine
+      container_name: php-73
+      volumes:
+        - ./:/var/www/html
+
+    webserver:
+      image: nginx:1.17.10
+      container_name: nginx-webserver
+      links:
+        - php:fpm
+      enviroment:
+        - FPM_HOST=fpm
+        - FPM_PORT=9000
+      volumes:
+        - ./:/var/www/html
+        - ./docker/nginx_conf:/etc/nginx/conf.d/
+      ports:
+        - "8080:80"
