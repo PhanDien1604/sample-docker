@@ -1,7 +1,9 @@
 version: '3.1'
 services:
     php:
-      image: php:7.3-fpm-alpine
+      build:
+        context: ./
+        dockerfile: php.Dockerfile
       container_name: php-73
       volumes:
         - ./:/var/www/html
@@ -19,3 +21,14 @@ services:
         - ./docker/nginx_conf:/etc/nginx/conf.d/
       ports:
         - "8080:80"
+    db:
+      platform: linux/x86_64
+      image: mysql:5.7
+      container_name: mysql-db    
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: sampleDB
+        MYSQL_USER: sampleUser
+        MYSQL_PASSWORD: password
+      ports:
+        - 3306:3306
