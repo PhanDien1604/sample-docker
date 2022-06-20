@@ -3,10 +3,17 @@
 echo 'Here the index file';
 
 try {
-    $dbh = new PDO('mysql:host=db;port=3306;dbname=sampleDB', 'root', 'root');
-    $dbh->exec('CREATe TABLE IF NOT EXISTS sample_table (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        sample_column VARCHAR(30) NOT NULL
+    $dbh = new PDO('mysql:host=db;port=3306;dbname=dienpq', 'root', 'root');
+    $dbh->exec('CREATE TABLE users
+    (
+        id int PRIMARY KEY AUTO_INCREMENT,
+        mail VARCHAR(255),
+        name VARCHAR(255),
+        password VARCHAR(255),
+        phone VARCHAR(20),
+        address VARCHAR(255),
+        created_at date,
+        updated_at date
     );');
     echo '<br>';
     echo 'Conection success';

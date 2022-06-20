@@ -22,3 +22,5 @@ DELETE FROM categories WHERE id NOT IN
     SELECT DISTINCT category_id FROM items
     WHERE category_id IS NOT NULL
 );
+
+

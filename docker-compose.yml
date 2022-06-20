@@ -27,8 +27,8 @@ services:
       container_name: mysql-db    
       environment:
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: sampleDB
-        MYSQL_USER: sampleUser
-        MYSQL_PASSWORD: password
+        MYSQL_DATABASE: dienpq
+        MYSQL_USER: phandien
+        MYSQL_PASSWORD: 16042001
       ports:
         - 3306:3306
